@@ -45,7 +45,7 @@ struct JumpPoint
 class Parser
 {
 public:
-	std::vector<Instruction> parse(std::vector<Token> tokens)
+	std::vector<Instruction> parse(std::vector<Token> tokens, int offset)
 	{
 		if (!tokens.size())
 			std::cout << "(Parser) Empty input" << std::endl;
@@ -72,7 +72,7 @@ public:
 			{
 				switch (r)
 				{
-					case 3: case 6: case 14: // Short instruction
+					case 3: case 6: case 15: // Short instruction
 
 						currentInstruction.opcode = r;
 						currentInstruction.instructionType = InstructionTypes::SHORT;
@@ -157,7 +157,7 @@ public:
 				if (tokens[++index].value == ":")
 				{
 					JumpPoint jp;
-					jp.address = currentAddress;
+					jp.address = currentAddress + offset;
 					jp.name = tokens[index - 1].value;
 
 					jumpPoints.push_back(jp);
@@ -177,7 +177,7 @@ public:
 
 private:
 	// Lists of reserved words what are used to identify instructions or addressing modes.
-	std::vector<std::string> RESERVED_WORDS = { "mov", "sto", "sps", "spl", "jmp", "sbr", "ret", "add", "sub", "and", "ior", "xor", "shl", "shr", "hlt" };
+	std::vector<std::string> RESERVED_WORDS = { "mov", "sto", "sps", "spl", "jmp", "sbr", "ret", "add", "sub", "and", "ior", "xor", "shl", "shr", "cmp", "hlt" };
 	std::vector<std::string> ADDRESSING_MODE_SYMBOLS = { "&", "#", "$", "%" };
 
 	std::vector<JumpPoint> jumpPoints;
