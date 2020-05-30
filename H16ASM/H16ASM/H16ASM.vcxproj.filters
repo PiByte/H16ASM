@@ -23,5 +23,14 @@
     <ClInclude Include="assembler.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="tokenizer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generator.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

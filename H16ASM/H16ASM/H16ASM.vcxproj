@@ -142,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="assembler.hpp" />
+    <ClInclude Include="generator.hpp" />
+    <ClInclude Include="parser.hpp" />
+    <ClInclude Include="tokenizer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
