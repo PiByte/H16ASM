@@ -15,7 +15,6 @@ Main file, loads in source code, builds it and writes the final binray to a file
 int main(int argc, char** argv)
 {
 	std::string logo = "   __ __                  ___ \n  / // /_ _____  ___ ____( _ )\n / _  / // / _ \\/ -_) __/ _  |\n/_//_/\\_, / .__/\\__/_/  \\___/ \n ___ /___/_/ _                \n/ _ `(_-</  ' \\               \n\\_,_/___/_/_/_/               ";
-	std::cout << logo << "\nVersion 1.2\n\n";
 
 	if (argc < 2)
 	{
@@ -62,7 +61,9 @@ int main(int argc, char** argv)
 	Parser p;
 	Generator g;
 
-	std::vector<unsigned char> binary = g.generate(p.parse(t.tokenize(code), stAddr));
+	std::vector<Token> one = t.tokenize(code);
+	std::vector<Instruction> two = p.parse(one, stAddr);
+	std::vector<unsigned char> binary = g.generate(two);
 
 	// Outputs file
 	std::fstream outputFile(std::string(argv[1]) + ".bin", std::fstream::out | std::fstream::binary);

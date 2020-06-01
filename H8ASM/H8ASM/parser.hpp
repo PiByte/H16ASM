@@ -10,6 +10,7 @@ Returns deconstructed instrucions in the form of a vector of "Instructions"
 #include <iostream>
 #include <vector>
 #include <string> // For std::stoi
+#include <algorithm> // For std::rotate
 
 enum InstructionTypes
 {
@@ -152,6 +153,8 @@ public:
 			}
 			else
 			{
+				// this adds a jump point, which can later be used when jumping. this is used so you dont have to remember a bunch of memory addresses.
+
 				if (index + 1 >= tokens.size()) break;
 
 				if (tokens[++index].value == ":")
@@ -172,6 +175,14 @@ public:
 			index++;
 		}
 
+		// displayes jump points
+		std::cout << "\n|>---<| Defined jump points |>---<|\n";
+		for (int i = 0; i < jumpPoints.size(); i++)
+		{
+			std::cout << jumpPoints[i].name << " : " << jumpPoints[i].address << std::endl;
+		}
+		std::cout << "|>-------------------------------<|\n\n";
+
 		return instructions;
 	}
 
@@ -185,7 +196,7 @@ private:
 	// Checks if element is present in provided list
 	int isPresent(std::vector<std::string> *list, std::string value)
 	{
-		for (int i = 0; i < RESERVED_WORDS.size(); i++)
+		for (int i = 0; i < list->size(); i++)
 		{
 			if (list->at(i) == value)
 				return i;

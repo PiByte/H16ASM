@@ -1,7 +1,7 @@
 ﻿  main.cpp
   Generating code
-  454 of 466 functions (97.4%) were compiled, the rest were copied from previous compilation.
-    384 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+  2 of 484 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   H8ASM.vcxproj -> C:\Users\Jacob\source\repos\H8ASM\x64\Release\H8ASM.exe
