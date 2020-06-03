@@ -15,6 +15,7 @@ Main file, loads in source code, builds it and writes the final binray to a file
 int main(int argc, char** argv)
 {
 	std::string logo = "   __ __                  ___ \n  / // /_ _____  ___ ____( _ )\n / _  / // / _ \\/ -_) __/ _  |\n/_//_/\\_, / .__/\\__/_/  \\___/ \n ___ /___/_/ _                \n/ _ `(_-</  ' \\               \n\\_,_/___/_/_/_/               ";
+	std::cout << logo << "\n\n";
 
 	if (argc < 2)
 	{
